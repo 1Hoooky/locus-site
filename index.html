@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Locus Locações - Especializada em locação de climatizadores e aquecedores para eventos e projetos.">
+    <title>Locus Locações - Climatizadores e Aquecedores</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <span class="logo-locus">LOCUS</span> <span class="logo-locacoes">Locações</span>
+                    </div>
+                    <div class="nav-menu" id="navMenu">
+                        <a href="#inicio" class="nav-link">Início</a>
+                        <a href="#produtos" class="nav-link">Produtos</a>
+                        <a href="#sobre" class="nav-link">Sobre</a>
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </div>
+                    <button class="whatsapp-btn" onclick="abrirWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-locus">LOCUS</span><br>
+                    <span class="hero-locacoes">Locações</span>
+                </h1>
+                <p class="hero-description">
+                    Especializada em locação de climatizadores e aquecedores para eventos e projetos. 
+                    Atendimento de excelência e equipamentos modernos.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn btn-primary">Ver Produtos</a>
+                    <a href="#contato" class="btn btn-secondary">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <p class="section-description">
+                Oferecemos equipamentos de alta qualidade para garantir o conforto térmico em seus eventos e projetos.
+            </p>
+
+            <!-- Climatizadores -->
+            <div class="produtos-categoria">
+                <div class="categoria-header">
+                    <i class="fas fa-wind"></i>
+                    <h3>Climatizadores</h3>
+                </div>
+                <div class="produtos-grid">
+                    <div class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="images/climatizador-1.jpg" alt="Climatizador Industrial">
+                        </div>
+                        <div class="produto-info">
+                            <h4 class="produto-titulo">Climatizador Industrial</h4>
+                            <p class="produto-descricao">
+                                Climatizador evaporativo de alta capacidade, ideal para grandes ambientes e eventos. 
+                                Proporciona resfriamento eficiente e econômico.
+                            </p>
+                            <ul class="produto-features">
+                                <li><i class="fas fa-check-circle"></i> Alta capacidade de resfriamento</li>
+                                <li><i class="fas fa-check-circle"></i> Baixo consumo de energia</li>
+                                <li><i class="fas fa-check-circle"></i> Portátil e fácil de instalar</li>
+                            </ul>
+                            <button class="btn btn-produto" onclick="solicitarOrcamento('Climatizador Industrial')">
+                                Solicitar Orçamento
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="images/climatizador-2.jpg" alt="Climatizador Evaporativo">
+                        </div>
+                        <div class="produto-info">
+                            <h4 class="produto-titulo">Climatizador Evaporativo</h4>
+                            <p class="produto-descricao">
+                                Climatizador evaporativo versátil para ambientes médios. 
+                                Solução eficaz para controle de temperatura em diversos espaços.
+                            </p>
+                            <ul class="produto-features">
+                                <li><i class="fas fa-check-circle"></i> Ideal para ambientes médios</li>
+                                <li><i class="fas fa-check-circle"></i> Fácil mobilidade</li>
+                                <li><i class="fas fa-check-circle"></i> Operação silenciosa</li>
+                            </ul>
+                            <button class="btn btn-produto" onclick="solicitarOrcamento('Climatizador Evaporativo')">
+                                Solicitar Orçamento
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aquecedores -->
+            <div class="produtos-categoria">
+                <div class="categoria-header">
+                    <i class="fas fa-fire"></i>
+                    <h3>Aquecedores</h3>
+                </div>
+                <div class="produtos-grid">
+                    <div class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="images/aquecedor-1.jpg" alt="Aquecedor a Gás Industrial">
+                        </div>
+                        <div class="produto-info">
+                            <h4 class="produto-titulo">Aquecedor a Gás Industrial</h4>
+                            <p class="produto-descricao">
+                                Aquecedor a gás de alta potência para ambientes industriais e eventos. 
+                                Aquecimento rápido e eficiente mesmo em grandes espaços.
+                            </p>
+                            <ul class="produto-features">
+                                <li><i class="fas fa-check-circle"></i> Alta potência de aquecimento</li>
+                                <li><i class="fas fa-check-circle"></i> Aquecimento rápido</li>
+                                <li><i class="fas fa-check-circle"></i> Seguro e confiável</li>
+                            </ul>
+                            <button class="btn btn-produto" onclick="solicitarOrcamento('Aquecedor a Gás Industrial')">
+                                Solicitar Orçamento
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="produto-card">
+                        <div class="produto-imagem">
+                            <img src="images/aquecedor-2.jpg" alt="Aquecedor de Água a Gás">
+                        </div>
+                        <div class="produto-info">
+                            <h4 class="produto-titulo">Aquecedor de Água a Gás</h4>
+                            <p class="produto-descricao">
+                                Aquecedor de água a gás para eventos e instalações temporárias. 
+                                Fornecimento contínuo de água quente com eficiência energética.
+                            </p>
+                            <ul class="produto-features">
+                                <li><i class="fas fa-check-circle"></i> Água quente contínua</li>
+                                <li><i class="fas fa-check-circle"></i> Eficiência energética</li>
+                                <li><i class="fas fa-check-circle"></i> Instalação rápida</li>
+                            </ul>
+                            <button class="btn btn-produto" onclick="solicitarOrcamento('Aquecedor de Água a Gás')">
+                                Solicitar Orçamento
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre a Locus Locações</h2>
+            <div class="sobre-grid">
+                <div class="sobre-card">
+                    <h3>Missão</h3>
+                    <p>
+                        Fornecer soluções de locação de equipamentos com eficiência, atendendo às necessidades dos clientes 
+                        e proporcionando o sucesso de seus projetos. Nosso compromisso é oferecer um serviço excepcional, 
+                        um amplo inventário de equipamentos modernos e atendimento personalizado.
+                    </p>
+                </div>
+                <div class="sobre-card">
+                    <h3>Visão</h3>
+                    <p>
+                        Ser a principal referência em locação de equipamentos, reconhecida pela excelência em serviços, 
+                        qualidade dos equipamentos e pela capacidade de atender às demandas dos clientes. Buscamos expandir 
+                        nossa presença nacional e estabelecer parcerias duradouras.
+                    </p>
+                </div>
+                <div class="sobre-card">
+                    <h3>Valores</h3>
+                    <p>
+                        Integridade, ética, transparência e honestidade em todas as relações com clientes, colaboradores e parceiros. 
+                        Comprometimento com a excelência e a satisfação dos nossos clientes em cada projeto.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Depoimentos -->
+            <div class="depoimentos">
+                <h3 class="depoimentos-titulo">Depoimentos</h3>
+                <div class="depoimentos-grid">
+                    <div class="depoimento-card">
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="depoimento-texto">
+                            "Excelente atendimento e equipamentos de primeira qualidade. A Locus Locações foi fundamental 
+                            para o sucesso do nosso evento corporativo."
+                        </p>
+                        <p class="depoimento-autor">- Maria Silva, Gerente de Eventos</p>
+                    </div>
+                    <div class="depoimento-card">
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="depoimento-texto">
+                            "Profissionalismo e pontualidade impecáveis. Os climatizadores funcionaram perfeitamente 
+                            durante todo o evento. Recomendo!"
+                        </p>
+                        <p class="depoimento-autor">- João Santos, Produtor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-grid">
+                <!-- Formulário -->
+                <div class="contato-form-wrapper">
+                    <div class="form-card">
+                        <h3>Solicite um Orçamento</h3>
+                        <p class="form-description">Preencha o formulário e entraremos em contato o mais breve possível.</p>
+                        <form id="contatoForm" onsubmit="enviarFormulario(event)">
+                            <div class="form-group">
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="mensagem" name="mensagem" placeholder="Descreva suas necessidades" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Enviar via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div class="contato-info">
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(44) 9 9112-8051</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>comercial@locuslocacoes.com.br</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>Maringá - PR - Brasil</p>
+                        </div>
+                    </div>
+                    <div class="info-card whatsapp-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>Atendimento rápido e direto</p>
+                            <button class="btn btn-whatsapp" onclick="abrirWhatsApp()">Abrir WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <span class="footer-logo">LOCUS Locações</span>. Todos os direitos reservados.</p>
+            <p class="footer-subtitle">Especializada em locação de climatizadores e aquecedores</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5544991128051" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
