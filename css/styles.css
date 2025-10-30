@@ -577,28 +577,3 @@ html {
     scroll-behavior: smooth;
 }
 
-
-/* Estilo para o botão 'Ver todos os modelos' */
-.btn-ver-todos {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.btn-ver-todos .btn-secondary {
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-    width: auto;
-    background-color: transparent;
-    color: var(--amarelo);
-    border: 2px solid var(--amarelo);
-}
-
-.btn-ver-todos .btn-secondary:hover {
-    background-color: var(--amarelo);
-    color: var(--preto);
-}
