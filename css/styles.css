@@ -54,15 +54,16 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .logo-locus {
+    font-size: 1.5rem;
     color: var(--amarelo);
 }
 
 .logo-locacoes {
+    font-size: 1rem;
     color: var(--branco);
 }
 
@@ -124,16 +125,17 @@ body {
 }
 
 .hero-title {
-    font-size: 4rem;
     margin-bottom: 1.5rem;
 }
 
 .hero-locus {
+    font-size: 4rem;
     color: var(--amarelo);
     font-weight: bold;
 }
 
 .hero-locacoes {
+    font-size: 2rem;
     color: var(--branco);
     font-weight: bold;
 }
