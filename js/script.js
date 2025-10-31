@@ -18,23 +18,32 @@ navLinks.forEach(link => {
     });
 });
 
-// Smooth Scroll para links internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+	// Smooth Scroll para links internos
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	    anchor.addEventListener('click', function (e) {
+	        e.preventDefault();
+	        const target = document.querySelector(this.getAttribute('href'));
+	        const hash = this.getAttribute('href');
+	
+	        if (target) {
+	            const headerOffset = 80;
+	            const elementPosition = target.getBoundingClientRect().top;
+	            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+	
+	            window.scrollTo({
+	                top: offsetPosition,
+	                behavior: 'smooth'
+	            });
+	
+	            // Remove o hash da URL após a rolagem suave
+	            if (history.pushState) {
+	                history.pushState(null, null, window.location.pathname + window.location.search);
+	            } else {
+	                window.location.hash = '';
+	            }
+	        }
+	    });
+	});
 
 // Função para abrir WhatsApp
 function abrirWhatsApp() {
@@ -121,51 +130,65 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         const intervalTime = 8000; // 8 segundos
 
-        // Esconde todos os depoimentos
-        depoimentoCards.forEach(card => {
-            card.style.display = 'none';
-        });
-
-        // Função para mostrar o slide atual
+        // Função para mostrar o slide atual com fade-in
         function showSlide() {
-            // Esconde todos
-            depoimentoCards.forEach(card => {
-                card.style.display = 'none';
-                // Remove a classe para a animação de entrada
+            const nextIndex = (currentIndex + depoimentosPorSlide) % totalDepoimentos;
+            const currentIndices = [];
+            const nextIndices = [];
+
+            // Identifica os índices atuais e próximos
+            for (let i = 0; i < depoimentosPorSlide; i++) {
+                currentIndices.push((currentIndex + i) % totalDepoimentos);
+                nextIndices.push((nextIndex + i) % totalDepoimentos);
+            }
+
+            // 1. Aplica fade-out nos depoimentos atuais
+            currentIndices.forEach(index => {
+                const card = depoimentoCards[index];
                 card.classList.remove('fade-in');
+                card.classList.add('fade-out');
             });
 
-            // Calcula o índice final do slide
-            const endIndex = currentIndex + depoimentosPorSlide;
+            // 2. Após o tempo de transição (1s no CSS), troca o conteúdo e aplica fade-in
+            // O tempo de espera deve ser igual ao tempo de transição (1000ms)
+            setTimeout(() => {
+                // Esconde todos e remove a classe fade-out
+                depoimentoCards.forEach(card => {
+                    card.style.display = 'none';
+                    card.classList.remove('fade-out');
+                });
 
-            for (let i = currentIndex; i < endIndex; i++) {
-                // Usa o operador módulo para fazer o loop (circular)
-                const realIndex = i % totalDepoimentos;
-                const card = depoimentoCards[realIndex];
-                
-                // Exibe o card
-                card.style.display = 'block';
-                // Adiciona a classe para a animação de entrada (se você tiver uma no CSS)
-                // Como não temos uma classe de animação no CSS, vamos simular com opacidade
-                setTimeout(() => {
-                    card.style.opacity = '0';
-                    card.style.transition = 'opacity 1s ease-in-out';
-                    card.style.opacity = '1';
-                }, 10); // Pequeno delay para garantir que o display:block seja aplicado
+                // Exibe e aplica fade-in nos próximos depoimentos
+                nextIndices.forEach(index => {
+                    const card = depoimentoCards[index];
+                    card.style.display = 'block';
+                    // Pequeno delay para garantir que o display:block seja aplicado antes do fade-in
+                    setTimeout(() => {
+                        card.classList.add('fade-in');
+                    }, 10);
+                });
 
-                // O Intersection Observer no script.js já está aplicando uma animação,
-                // mas vamos garantir que ele não interfira no carrossel, removendo a observação
-                // para os cards que estão sendo controlados pelo carrossel.
-                // No entanto, para simplificar e focar no carrossel, vamos apenas controlar o display.
-                // O usuário pode notar a animação de scroll inicial, mas a troca será controlada aqui.
-            }
-            
-            // Move para o próximo conjunto de depoimentos (2 em 2)
-            currentIndex = (currentIndex + depoimentosPorSlide) % totalDepoimentos;
+                // Atualiza o índice para o próximo slide
+                currentIndex = nextIndex;
+            }, 1000); // 1000ms = 1 segundo (tempo da transição CSS)
         }
 
-        // Inicia o carrossel
-        showSlide();
+        // 3. Inicializa o primeiro slide
+        // Esconde todos primeiro
+        depoimentoCards.forEach(card => card.style.display = 'none');
+        
+        // Exibe os dois primeiros
+        for (let i = 0; i < depoimentosPorSlide; i++) {
+            const card = depoimentoCards[i];
+            card.style.display = 'block';
+            card.classList.add('fade-in');
+        }
+        
+        // Move o índice inicial para o próximo slide
+        currentIndex = depoimentosPorSlide % totalDepoimentos;
+
+        // Inicia a troca automática
+        // O intervalo deve ser o tempo total (8000ms)
         setInterval(showSlide, intervalTime);
     }
 });

@@ -63,7 +63,7 @@ body {
 }
 
 .logo-locacoes {
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: var(--branco);
 }
 
@@ -129,7 +129,7 @@ body {
 }
 
 .hero-locus {
-    font-size: 4.5rem;
+    font-size: 6rem;
     color: var(--amarelo);
     font-weight: bold;
 }
@@ -603,4 +603,18 @@ html {
 .btn-ver-todos .btn-secondary:hover {
     background-color: var(--amarelo);
     color: var(--preto);
+}
+
+/* Animação para Carrossel de Depoimentos */
+.depoimento-card {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.depoimento-card.fade-in {
+    opacity: 1;
+}
+
+.depoimento-card.fade-out {
+    opacity: 0;
 }
