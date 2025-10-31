@@ -618,3 +618,44 @@ html {
 .depoimento-card.fade-out {
     opacity: 0;
 }
+
+/* Estilos para Links Sociais no Footer */
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Para posicionar o social-links */
+}
+
+.social-links {
+    position: absolute;
+    left: 20px; /* Alinha à esquerda dentro do container */
+    bottom: 20px; /* Posiciona na parte inferior */
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--branco);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--amarelo);
+    transform: scale(1.1);
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    .footer .container {
+        padding-bottom: 60px; /* Adiciona espaço para o botão social */
+    }
+    
+    .social-links {
+        position: static; /* Remove o posicionamento absoluto em telas pequenas */
+        margin-top: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+}
