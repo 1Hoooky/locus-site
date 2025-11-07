@@ -1,0 +1,210 @@
+/* Critical CSS for above-the-fold content (Header and Hero Section) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --preto: #000000;
+    --preto-claro: #1a1a1a;
+    --cinza: #a0a0a0;
+    --branco: #ffffff;
+    --amarelo: #FFD700;
+    --amarelo-hover: #FFC700;
+    --cinza-escuro: #333333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cinza-escuro);
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.logo-locus {
+    position: relative;
+    top: 5px;
+    font-size: 1.5rem;
+    color: var(--amarelo);
+}
+
+.logo-locacoes {
+    position: relative;
+    left: 24px;
+    bottom: 10px;
+    font-size: 0.75rem;
+    color: var(--branco);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--branco);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.whatsapp-btn {
+    background-color: var(--amarelo);
+    color: var(--preto);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--amarelo);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--preto) 0%, var(--preto-claro) 100%);
+    padding-top: 80px;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+}
+
+.hero-locus {
+    font-size: 6rem;
+    color: var(--amarelo);
+    font-weight: bold;
+}
+
+.hero-locacoes {
+    font-size: 2rem;
+    position: relative;
+    bottom: 40px;
+    left: 70px;
+    color: var(--branco);
+    font-weight: bold;
+}
+
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--cinza);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons (Critical styles) */
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--amarelo);
+    color: var(--preto);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--amarelo);
+    border: 2px solid var(--amarelo);
+}
+
+/* Responsive (Critical for mobile menu toggle) */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--preto);
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid var(--cinza-escuro);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .whatsapp-btn {
+        display: none;
+    }
+    
+    .hero-locus {
+        font-size: 4rem; /* Ajuste para caber melhor no mobile */
+    }
+
+    .hero-locacoes {
+        font-size: 1.5rem;
+        left: 40px;
+        bottom: 20px;
+    }
+}
