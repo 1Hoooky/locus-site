@@ -676,3 +676,41 @@ html {
         width: 100%;
     }
 }
+
+/* Estilos para o Carrossel de Imagens */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Deve ser o mesmo que .produto-imagem */
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transição suave entre as imagens */
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+/* Ajuste para o produto-imagem para acomodar o wrapper do carrossel */
+.produto-imagem {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    /* Remove as propriedades de imagem original, pois a imagem agora está dentro do carrossel */
+}
+
